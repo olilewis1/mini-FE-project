@@ -1,11 +1,13 @@
-import './App.scss';
-
+import './App.scss'
+import React from 'react'
+import {  BrowserRouter as Router } from 'react-router-dom'
+import HomePage from './components/HomePage'
 function App() {
   return (
-<div className="hey"> 
-  hi
-</div>
+    <Router>
+      <HomePage />
+    </Router>
   )
 }
 
-export default App;
+export default App
