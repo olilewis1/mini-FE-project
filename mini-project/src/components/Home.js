@@ -1,20 +1,20 @@
-import React, { useState }from 'react'
+import React, { useState } from 'react'
 import RandomGif from './RandomGif'
-import axios from 'axios'
+
 const Home = () => {
-    // handle random gif
-    const [randomGifPic, setRandomGifPic] = useState('')
-    const handleRandomGif = async (event) => { 
+
+    const [trueOrFalseForGif, setTrueOrFalseForGif] = useState(true)
+
+    const handleRandomGif = async (event) => {
         console.log(event)
-        try { 
-            const  {data} = await axios.get('http://api.giphy.com/v1/gifs/random?api_key=P8JU8Vdoef6GiFlYQpEc7U9OVqf8dvjb')
-            const response = data.data
-            setRandomGifPic(response)
-        } catch (err) { 
-            console.log('error', err)
+        if (trueOrFalseForGif === true) {
+            setTrueOrFalseForGif(false)
+        }
+        if (trueOrFalseForGif === false) {
+            setTrueOrFalseForGif(true)
         }
     }
-    console.log(randomGifPic)
+
     return (
         <>
             <div >
@@ -32,7 +32,7 @@ const Home = () => {
                     </div>
                 </div >
             </div>
-            <RandomGif {...randomGifPic}/>
+            <RandomGif {...trueOrFalseForGif} />
 
         </>
     )
