@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Navbar = () => {
+const Search = () => {
     return (
         <div >
             < div className="nav" >
@@ -20,4 +20,4 @@ const Navbar = () => {
     )
 }
 
-export default Navbar
+export default Search
