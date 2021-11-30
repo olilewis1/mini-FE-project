@@ -6,6 +6,7 @@ const RandomGif = (trueOrFalseForGif) => {
     // useEffect(() => {
 
     // }, [])
+    console.log('true', trueOrFalseForGif)
     const [randomGifPic, setRandomGifPic] = useState('')
     useEffect(() => {
         const getData = async () => {
@@ -13,6 +14,7 @@ const RandomGif = (trueOrFalseForGif) => {
                 const { data } =  await axios.get('http://api.giphy.com/v1/gifs/random?api_key=P8JU8Vdoef6GiFlYQpEc7U9OVqf8dvjb')
                 const response = data.data
                 setRandomGifPic(response)
+                console.log('response', response)
             } catch (err) {
                 console.log('error', err)
             }
@@ -23,7 +25,7 @@ const RandomGif = (trueOrFalseForGif) => {
     if (randomGifPic === '') return null
     return (
         <div>
-            <img src={randomGifPic.images.downsized.url} alt='random Gif' />
+            <img src={randomGifPic.images.downsized_large.url} alt='random Gif' />
         </div>
     )
 }

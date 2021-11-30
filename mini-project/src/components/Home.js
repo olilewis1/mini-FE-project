@@ -3,15 +3,14 @@ import RandomGif from './RandomGif'
 
 const Home = () => {
 
-    const [trueOrFalseForGif, setTrueOrFalseForGif] = useState(true)
+    const [trueOrFalseForGif, setTrueOrFalseForGif] = useState(undefined)
 
-    const handleRandomGif = async (event) => {
-        console.log(event)
-        if (trueOrFalseForGif === true) {
-            setTrueOrFalseForGif(false)
+    const handleRandomGif = async () => {
+        if (trueOrFalseForGif === 2 ) {
+            setTrueOrFalseForGif(1)
         }
-        if (trueOrFalseForGif === false) {
-            setTrueOrFalseForGif(true)
+        if (trueOrFalseForGif === 1 || trueOrFalseForGif === undefined) {
+            setTrueOrFalseForGif(2)
         }
     }
 
@@ -32,7 +31,9 @@ const Home = () => {
                     </div>
                 </div >
             </div>
-            <RandomGif {...trueOrFalseForGif} />
+            {trueOrFalseForGif ? <RandomGif {...trueOrFalseForGif} /> : <div>
+                Pick a random div</div>}
+            
 
         </>
     )
