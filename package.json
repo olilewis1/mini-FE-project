@@ -17,6 +17,9 @@
   },
   "homepage": "https://github.com/olilewis1/mini-FE-project#readme",
   "dependencies": {
-    "react": "^17.0.2"
+    "history": "^5.1.0",
+    "react": "^17.0.2",
+    "react-router": "^6.0.2",
+    "react-router-dom": "^6.0.2"
   }
 }
