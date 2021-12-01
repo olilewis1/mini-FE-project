@@ -36,12 +36,10 @@ const RandomGif = () => {
     return (
         <>
             <div className="random-gif">
-                <div className="random-img">
-                    <div >
+                <div className="random-img flex-middle">
                         <img src={randomGifPic.images.fixed_height.url} alt="random Gif" />
-                    </div>
                 </div>
-                <div className="button-random">
+                <div className="button-random content-width">
                     <button onClick={handleRandomGif}> Random Gif</button>
                 </div>
             </div>

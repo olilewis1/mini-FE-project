@@ -1,13 +1,49 @@
+// overall styles 
+// reusable code 
 $primaryColor: white;
+// flex to center 
+.flex-middle{ 
+  display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+// buttons and content width 
+
+
+
+//end of reusable code 
+
 body { 
   margin: 0px;
-      width: 100vw;
 }
 * {
   background-color: black;
   color: $primaryColor;
-}
+  font-family: 'Permanent Marker', cursive, sans-serif;
+  width: 100%;
 
+}
+// all buttons on page
+
+button {
+  background-color:$primaryColor;
+  color: black;
+  border-radius: 8px;
+  height:41px; 
+}
+button:hover { 
+  background-color: black;
+  color: white;
+
+}
+// end of buttons on page
+// end of overall styles 
+
+
+ 
+
+//random gif page
 .random-gif {
   display: flex;
   flex-direction: column;
@@ -30,6 +66,10 @@ body {
     color: white;
   }
 }
+
+// end of random gif 
+
+// home page 
 .home { 
   display: flex;
     flex-direction: column;
@@ -37,8 +77,49 @@ body {
   .logo-container img { 
     max-width: 500px;
   }
+
 }
 
+// media queries home page
+
+@mixin homePageMobile {
+  @media only screen and (max-width: 480px) { 
+
+  }
+}
+
+@mixin logo-home {
+  @include homePageMobile;
+  width: 300px;
+}
+@mixin logo-container { 
+  @include homePageMobile();
+  display: flex;
+    flex-direction: column;
+    align-items: center;
+  text-align: center;
+
+}
+
+  @mixin container-width { 
+    @include homePageMobile();
+      max-width: 260px;
+  }
+.home { 
+  .logo-container img { 
+    @include homePageMobile();
+  }
+  .logo-container { 
+    @include logo-container()
+  }
+  .content-width { 
+   @include container-width();
+}
+}
+
+// end of homepage
+
+// search page 
 .search-page{ 
   .search-forms { 
     display: flex;
@@ -53,26 +134,29 @@ body {
     color: black;
     outline: none;
   }
-  button {
-    background-color:$primaryColor;
-    color: black;
-    border-radius: 8px;
-  }
-  button:hover { 
-    background-color: black;
-    color: white;
 
-  }
   .search-images { 
     height: 100px;
     flex: 0 0 215px;
   }
   .search-images-container { 
     display: flex;
-    max-width: 500px;
     height: 500px;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
   }
+  .search-container-width{ 
+    display: flex;
+    max-width: 260px;
+  }
+  .make-search { 
+   text-align: center;
+   padding-top: 20px;
+  }
+  .images-map { 
+    max-width: 100px;
+  }
 }
+
+// end of search page 

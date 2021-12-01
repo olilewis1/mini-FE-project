@@ -24,5 +24,6 @@ Bonus:
     sort buttons 
     responsive 
     notes clean up code 
-    
+    make nicer for user 
+
     

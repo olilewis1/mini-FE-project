@@ -7,25 +7,23 @@ const Search = () => {
 
     const handleChange = (event) => {
         const searchVariable = event.target.value
+        const lengthChecker = event.target.value.split('')
         setSearchTerm(searchVariable)
         if(event.target.value === '') { 
          setHandleSearch(false)
         setSearchGifs([])
-         } else { 
+         } else if (lengthChecker.length > 1) { 
              setHandleSearch(true)
          }
     }
 
-    const handleSubmitSearch = (event) => {        
-        console.log(searchTerm, 'search term')
+    const handleSubmitSearch = () => {        
         setHandleSearch(true)
-        console.log(event)
-        console.log(searchTerm)
         const getData = async () => {
             try {
                 const { data } = await axios.get(`http://api.giphy.com/v1/gifs/search?api_key=P8JU8Vdoef6GiFlYQpEc7U9OVqf8dvjb&q=${searchTerm}&limit=20`)
                 const response = data.data
-                console.log('response', response)
+                console.log(data.data.length, 'length of data')
                 setSearchGifs(response)
             } catch (err) {
                 console.log('error', err)
@@ -33,10 +31,10 @@ const Search = () => {
         }
         getData()
     }
-    console.log('search gifs', searchGifs)
     return (
         <div className="search-page">
             <div className="search-forms">
+                <div className="search-container-width"> 
                 <input
                     type="text"
                     id="gif-search"
@@ -46,14 +44,23 @@ const Search = () => {
                     value={searchTerm}
                 />
                 <button type="submit" onClick={handleSubmitSearch}>Search</button>
+                </div>
             </div>
             <div className="search-images-container">
                 {
-                    handleSearch ? searchGifs.map(item =>
-                    <div key={item.id}>
-                            <img className="search-images" src={item.images.fixed_width.url} alt="gif" height="500px" />
+                    handleSearch ? searchGifs.map(item =>  { 
+                    //     return   if (searchGifs.length === 0) { 
+                    //     return ( 
+                    //     <div className="make-search"> Your search brought </div>
+                    //     )
+                    // }
+                    return (
+                    <div key={item.id} className="images-map">
+                            <img  className="search-images" src={item.images.fixed_width.url} alt="gif" height="500px" />
                         </div>
-                    ) : <div> make a search </div>}
+                    )}) : <div className="make-search"> make a search </div>
+                    
+                  }
             </div>
         </div>
 
