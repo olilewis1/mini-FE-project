@@ -9,4 +9,4 @@ Installation steps:
 
 You are up and running and ready to go! Hope you enjoy. 
 
-Got two main section, random gif generator and search gifs, try both out! A few little features included to help with UX and handle what they search. 
+Got two main sections, random gif generator and search gifs, try both out! A few little features included to help with UX and handle what they search. 
