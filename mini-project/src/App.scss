@@ -80,42 +80,6 @@ button:hover {
 
 }
 
-// media queries home page
-
-@mixin homePageMobile {
-  @media only screen and (max-width: 480px) { 
-
-  }
-}
-
-@mixin logo-home {
-  @include homePageMobile;
-  width: 300px;
-}
-@mixin logo-container { 
-  @include homePageMobile();
-  display: flex;
-    flex-direction: column;
-    align-items: center;
-  text-align: center;
-
-}
-
-  @mixin container-width { 
-    @include homePageMobile();
-      max-width: 260px;
-  }
-.home { 
-  .logo-container img { 
-    @include homePageMobile();
-  }
-  .logo-container { 
-    @include logo-container()
-  }
-  .content-width { 
-   @include container-width();
-}
-}
 
 // end of homepage
 
@@ -145,6 +109,7 @@ button:hover {
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
+    margin-top: 20px;
   }
   .search-container-width{ 
     display: flex;
@@ -157,6 +122,67 @@ button:hover {
   .images-map { 
     max-width: 100px;
   }
+  .images-container-inner { 
+    max-width: 500px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
 }
 
 // end of search page 
+
+// media queries home page
+
+@mixin homePageMobile {
+  @media only screen and (max-width: 480px) { 
+    width: 300px;
+
+  }
+}
+
+@mixin logo-home {
+  @include homePageMobile;
+}
+@mixin logo-container { 
+  @include homePageMobile();
+  display: flex;
+    flex-direction: column;
+    align-items: center;
+  text-align: center;
+
+}
+
+  @mixin container-width { 
+    @include homePageMobile();
+      max-width: 260px;
+  }
+.home { 
+  .logo-container img { 
+    @include logo-home()
+  }
+  .logo-container { 
+    @include logo-container()
+  }
+  .content-width { 
+   @include container-width();
+}
+}
+
+@mixin imagesMap { 
+  @media only screen and (min-width:780px) { 
+    max-width: 160px;
+  }
+}
+
+.search-page { 
+  .images-map { 
+    @include imagesMap()
+  }
+}
+.random-gif{ 
+  img { 
+    @include homePageMobile()
+  }
+}

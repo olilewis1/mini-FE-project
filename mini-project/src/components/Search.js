@@ -47,6 +47,7 @@ const Search = () => {
                 </div>
             </div>
             <div className="search-images-container">
+                <div className="images-container-inner"> 
                 {
                     handleSearch ? searchGifs.map(item =>  { 
                     //     return   if (searchGifs.length === 0) { 
@@ -61,6 +62,7 @@ const Search = () => {
                     )}) : <div className="make-search"> make a search </div>
                     
                   }
+                  </div>
             </div>
         </div>
 
