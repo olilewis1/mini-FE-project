@@ -2,16 +2,23 @@ import React, { useState } from 'react'
 import axios from 'axios'
 const Search = () => {
     const [searchTerm, setSearchTerm] = useState('')
-    const [searchGifs, setSearchGifs] = useState(false)
-    const [handleSearchOrRandom, setHandleSearchOrRandom] = useState(1)
+    const [searchGifs, setSearchGifs] = useState([])
+    const [handleSearch, setHandleSearch] = useState(false)
 
     const handleChange = (event) => {
         const searchVariable = event.target.value
         setSearchTerm(searchVariable)
+        if(event.target.value === '') { 
+         setHandleSearch(false)
+        setSearchGifs([])
+         } else { 
+             setHandleSearch(true)
+         }
     }
 
-    const handleSubmitSearch = (event) => {
-        setHandleSearchOrRandom(true)
+    const handleSubmitSearch = (event) => {        
+        console.log(searchTerm, 'search term')
+        setHandleSearch(true)
         console.log(event)
         console.log(searchTerm)
         const getData = async () => {
@@ -26,6 +33,7 @@ const Search = () => {
         }
         getData()
     }
+    console.log('search gifs', searchGifs)
     return (
         <div className="search-page">
             <div className="search-forms">
@@ -41,8 +49,8 @@ const Search = () => {
             </div>
             <div className="search-images-container">
                 {
-                    searchGifs ? searchGifs.map(item =>
-                        <div key={item.id}>
+                    handleSearch ? searchGifs.map(item =>
+                    <div key={item.id}>
                             <img className="search-images" src={item.images.fixed_width.url} alt="gif" height="500px" />
                         </div>
                     ) : <div> make a search </div>}
