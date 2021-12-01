@@ -8,15 +8,10 @@ $primaryColor: white;
     align-items: center;
 }
 
-// buttons and content width 
-
-
 
 //end of reusable code 
 
-body { 
-  margin: 0px;
-}
+
 * {
   background-color: black;
   color: $primaryColor;
@@ -54,6 +49,7 @@ button:active {
   align-items: center;
   padding: 40px 0 0 0;
 
+  // random gif image 
   img {
     height: 330px;
     max-width: 490px;
@@ -64,6 +60,9 @@ button:active {
     -ms-transition: all 2s ease;  
     transition: all 2s ease;
   }
+  // end of random gif
+
+  // button 
   .button-random {
     padding: 20px;
   }
@@ -75,6 +74,7 @@ button:active {
     background-color: black;
     color: white;
   }
+  // end of button
 }
 
 // end of random gif 
@@ -95,6 +95,7 @@ button:active {
 
 // search page 
 .search-page{ 
+  // forms 
   .search-forms { 
     display: flex;
     justify-content: center;
@@ -108,7 +109,9 @@ button:active {
     color: black;
     outline: none;
   }
+  // end of forms 
 
+  // images cotiner and images and ternary options
   .search-images { 
     height: 100px;
     flex: 0 0 215px;
@@ -129,6 +132,7 @@ button:active {
    text-align: center;
    padding-top: 20px;
   }
+
   .images-map { 
     max-width: 100px;
     transition: transform .2s;
@@ -143,22 +147,25 @@ button:active {
   img:hover{ 
     transform: scale(1.5);
   }
+  // end of images and container 
 }
 
 // end of search page 
 
-// media queries home page
-
+// media queries
+// logo home
 @mixin homePageMobile {
   @media only screen and (max-width: 480px) { 
     width: 300px;
 
   }
 }
-
 @mixin logo-home {
   @include homePageMobile;
 }
+
+
+
 @mixin logo-container { 
   @include homePageMobile();
   display: flex;
@@ -167,92 +174,50 @@ button:active {
   text-align: center;
 
 }
-
+// container width 
   @mixin container-width { 
     @include homePageMobile();
       max-width: 260px;
   }
+
+  // logo for home 
+
 .home { 
   .logo-container img { 
     @include logo-home()
   }
+  // useabe code on logo container for flexbox 
   .logo-container { 
     @include logo-container()
   }
+
   .content-width { 
    @include container-width();
 }
 }
 
+// size of mapped images on larger screen 
 @mixin imagesMap { 
   @media only screen and (min-width:780px) { 
     max-width: 160px;
   }
 }
-
 .search-page { 
   .images-map { 
     @include imagesMap()
   }
 }
+// end of mapped images 
+
+// rnadom gif inheriting same size as logo container. 
 .random-gif{ 
   img { 
     @include homePageMobile()
   }
 }
-
+// fade in added to random img
 @keyframes fadeIn { 
   0% {opacity:0;}
   100% {opacity:1;}
 }
 
-.fade-out {
-  animation: fadeOut ease 8s;
-  -webkit-animation: fadeOut ease 8s;
-  -moz-animation: fadeOut ease 8s;
-  -o-animation: fadeOut ease 8s;
-  -ms-animation: fadeOut ease 8s;
-}
-@keyframes fadeOut {
-  0% {
-    opacity:1;
-  }
-  100% {
-    opacity:0;
-  }
-}
-
-@-moz-keyframes fadeOut {
-  0% {
-    opacity:1;
-  }
-  100% {
-    opacity:0;
-  }
-}
-
-@-webkit-keyframes fadeOut {
-  0% {
-    opacity:1;
-  }
-  100% {
-    opacity:0;
-  }
-}
-
-@-o-keyframes fadeOut {
-  0% {
-    opacity:1;
-  }
-  100% {
-    opacity:0;
-  }
-}
-
-@-ms-keyframes fadeOut {
-  0% {
-    opacity:1;
-  }
-  100% {
-    opacity:0;
-}}

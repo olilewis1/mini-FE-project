@@ -3,7 +3,14 @@ import axios from 'axios'
 const RandomGif = () => {
 
 
+    // variables 
+    //for handleRandomGif
     const [trueOrFalseForGif, setTrueOrFalseForGif] = useState(undefined)
+    // for getData sets pic to this state
+    const [randomGifPic, setRandomGifPic] = useState('')
+    // end of variabls
+
+    // true or false sets off use effect to get the new random gif. 
     const handleRandomGif = async () => {
         if (trueOrFalseForGif === 2) {
             setTrueOrFalseForGif(1)
@@ -12,21 +19,26 @@ const RandomGif = () => {
             setTrueOrFalseForGif(2)
         }
     }
+    // end of useeffect dependendcy setting 
 
-    const [randomGifPic, setRandomGifPic] = useState('')
+
+
+
+    // get data
     useEffect(() => {
         const getData = async () => {
             try {
                 const { data } = await axios.get('http://api.giphy.com/v1/gifs/random?api_key=P8JU8Vdoef6GiFlYQpEc7U9OVqf8dvjb')
                 const response = data.data
                 setRandomGifPic(response)
-                console.log('response', response)
             } catch (err) {
                 console.log('error', err)
             }
         }
         getData()
     }, [trueOrFalseForGif])
+
+    // end of gettting data. 
 
     if (randomGifPic === '') return null
     return (
