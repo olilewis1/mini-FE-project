@@ -37,6 +37,10 @@ button:hover {
   color: white;
 
 }
+button:active {
+
+  transform: translateY(4px);
+}
 // end of buttons on page
 // end of overall styles 
 
@@ -53,6 +57,12 @@ button:hover {
   img {
     height: 330px;
     max-width: 490px;
+    animation: fadeIn 5s;
+    -webkit-transition: all 2s ease;  
+    -moz-transition: all 2s ease;  
+    -o-transition: all 2s ease;  
+    -ms-transition: all 2s ease;  
+    transition: all 2s ease;
   }
   .button-random {
     padding: 20px;
@@ -121,6 +131,7 @@ button:hover {
   }
   .images-map { 
     max-width: 100px;
+    transition: transform .2s;
   }
   .images-container-inner { 
     max-width: 500px;
@@ -128,6 +139,9 @@ button:hover {
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
+  }
+  img:hover{ 
+    transform: scale(1.5);
   }
 }
 
@@ -186,3 +200,59 @@ button:hover {
     @include homePageMobile()
   }
 }
+
+@keyframes fadeIn { 
+  0% {opacity:0;}
+  100% {opacity:1;}
+}
+
+.fade-out {
+  animation: fadeOut ease 8s;
+  -webkit-animation: fadeOut ease 8s;
+  -moz-animation: fadeOut ease 8s;
+  -o-animation: fadeOut ease 8s;
+  -ms-animation: fadeOut ease 8s;
+}
+@keyframes fadeOut {
+  0% {
+    opacity:1;
+  }
+  100% {
+    opacity:0;
+  }
+}
+
+@-moz-keyframes fadeOut {
+  0% {
+    opacity:1;
+  }
+  100% {
+    opacity:0;
+  }
+}
+
+@-webkit-keyframes fadeOut {
+  0% {
+    opacity:1;
+  }
+  100% {
+    opacity:0;
+  }
+}
+
+@-o-keyframes fadeOut {
+  0% {
+    opacity:1;
+  }
+  100% {
+    opacity:0;
+  }
+}
+
+@-ms-keyframes fadeOut {
+  0% {
+    opacity:1;
+  }
+  100% {
+    opacity:0;
+}}

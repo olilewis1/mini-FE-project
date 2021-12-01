@@ -2,13 +2,9 @@ import React, { useEffect, useState } from 'react'
 import axios from 'axios'
 const RandomGif = () => {
 
-    // get random giff
-    // useEffect(() => {
 
-    // }, [])
     const [trueOrFalseForGif, setTrueOrFalseForGif] = useState(undefined)
     const handleRandomGif = async () => {
-
         if (trueOrFalseForGif === 2) {
             setTrueOrFalseForGif(1)
         }
